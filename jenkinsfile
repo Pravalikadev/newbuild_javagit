@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Pravalikadev/newbuild_javagit.git'
+            }
+        }
+        stage('Java'){
+            steps {
+                sh '''javac javaproject.java
+java javaproject'''
+            }
+        }
+    }
+}
